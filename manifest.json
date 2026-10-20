@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Selective LocalStorage Purger",
+  "version": "1.1.0",
+  "description": "Inspect and selectively delete localStorage & sessionStorage keys without wiping your login cookies or session.",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Storage Purger"
+  },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Alt+Shift+X",
+        "mac": "Alt+Shift+X"
+      },
+      "description": "Open Storage Purger"
+    }
+  },
+  "icons": {
+  "16": "icons/icons.png",
+  "48": "icons/icons.png",
+  "128": "icons/icons.png"
+  }
+}

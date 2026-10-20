@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Storage Purger</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="vibe-container">
+    <!-- Ambient Background Glow -->
+    <div class="ambient-glow"></div>
+
+    <!-- Header -->
+    <header class="vibe-header">
+      <div class="brand-group">
+        <div class="pulse-dot" title="Active Page Inspection Live"></div>
+        <span class="brand-title">STORAGE<span class="accent-text">_PURGER</span></span>
+        <span class="vibe-badge">v1.1</span>
+      </div>
+      <button id="btnRefresh" class="vibe-icon-btn" title="Refresh Storage">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21.5 2v6h-6M2.5 22v-6h6"/>
+          <path d="M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/>
+        </svg>
+      </button>
+    </header>
+
+    <!-- Search Input with Keyboard Shortcut Hint -->
+    <div class="search-wrapper">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"></circle>
+        <path d="M21 21l-4.35-4.35"></path>
+      </svg>
+      <input type="text" id="searchInput" placeholder="Filter keys (e.g. draft_*, auth)..." spellcheck="false" />
+      <kbd class="shortcut-kbd">Alt+Shift+X</kbd>
+    </div>
+
+    <!-- Preset Chips -->
+    <div class="presets">
+      <button class="chip" data-filter="draft, temp, autosave, input, form, edit">⚡ Drafts</button>
+      <button class="chip" data-filter="search, query, history, recent, filter">🔍 Search</button>
+      <button class="chip" data-filter="banner, modal, popup, dismiss, seen, notice, dialog, cookie, tour">🚩 Modals</button>
+    </div>
+
+    <!-- Storage Tabs -->
+    <div class="tab-bar">
+      <button id="btnLocal" class="tab-btn active">
+        <span>localStorage</span>
+        <span id="localCount" class="badge">0</span>
+      </button>
+      <button id="btnSession" class="tab-btn">
+        <span>sessionStorage</span>
+        <span id="sessionCount" class="badge">0</span>
+      </button>
+    </div>
+
+    <!-- Status / Error Banner -->
+    <div id="statusBanner" class="status-banner hidden"></div>
+
+    <!-- Storage Key List -->
+    <div id="keyList" class="key-list"></div>
+
+    <!-- Footer Action Controls -->
+    <footer class="footer">
+      <button id="btnPurgeFiltered" class="btn btn-warning" disabled>Purge Matching</button>
+      <button id="btnPurgeAll" class="btn btn-danger">Clear All</button>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
